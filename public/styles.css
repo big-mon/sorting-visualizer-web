@@ -150,6 +150,26 @@ h1 {
 
 .checkboxes {
   display: grid;
+  gap: 14px;
+}
+
+.algo-group {
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 12px;
+  background: #f8f1e8;
+  border: 1px solid rgba(201, 192, 180, 0.6);
+}
+
+.algo-group h4 {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.algo-options {
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 6px 12px;
 }
@@ -237,6 +257,17 @@ input[type="range"] {
 .algo-notes h2 {
   margin: 0;
   font-size: 20px;
+}
+
+.algo-category {
+  display: grid;
+  gap: 10px;
+}
+
+.algo-category > h3 {
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: 0.02em;
 }
 
 .algo-list {
