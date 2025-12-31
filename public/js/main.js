@@ -216,6 +216,105 @@ function buildPanels() {
   });
 
   renderAll();
+  updateCategoryToggles();
+}
+
+function toggleCategory(group, forceState = null) {
+  let selector = "";
+  if (group === "comparison") {
+    selector = [
+      "bubble",
+      "insertion",
+      "selection",
+      "quick",
+      "merge",
+      "heap",
+      "shell",
+      "intro",
+      "tim",
+      "comb",
+      "cocktail",
+      "gnome",
+      "oddEven",
+      "bitonic",
+      "oddEvenMerge",
+    ]
+      .map((value) => `input[type="checkbox"][value="${value}"]`)
+      .join(",");
+  } else if (group === "noncomparison") {
+    selector = ["counting", "radix", "bucket"]
+      .map((value) => `input[type="checkbox"][value="${value}"]`)
+      .join(",");
+  } else if (group === "joke") {
+    selector = ["bogo", "stalin"]
+      .map((value) => `input[type="checkbox"][value="${value}"]`)
+      .join(",");
+  }
+  if (!selector) {
+    return;
+  }
+  const inputs = [...algoList.querySelectorAll(selector)];
+  if (!inputs.length) {
+    return;
+  }
+  const shouldCheck =
+    forceState != null ? forceState : inputs.some((input) => !input.checked);
+  inputs.forEach((input) => {
+    input.checked = shouldCheck;
+  });
+  if (layout) {
+    setRunning(false);
+    buildPanels();
+    resetAll();
+  } else {
+    updateCategoryToggles();
+  }
+}
+
+function updateCategoryToggles() {
+  const groups = [
+    {
+      name: "comparison",
+      keys: [
+        "bubble",
+        "insertion",
+        "selection",
+        "quick",
+        "merge",
+        "heap",
+        "shell",
+        "intro",
+        "tim",
+        "comb",
+        "cocktail",
+        "gnome",
+        "oddEven",
+        "bitonic",
+        "oddEvenMerge",
+      ],
+    },
+    { name: "noncomparison", keys: ["counting", "radix", "bucket"] },
+    { name: "joke", keys: ["bogo", "stalin"] },
+  ];
+
+  groups.forEach((group) => {
+    const toggle = algoList.querySelector(
+      `.algo-toggle-checkbox[data-group="${group.name}"]`
+    );
+    if (!toggle) {
+      return;
+    }
+    const inputs = group.keys
+      .map((value) =>
+        algoList.querySelector(`input[type="checkbox"][value="${value}"]`)
+      )
+      .filter(Boolean);
+    if (!inputs.length) {
+      toggle.checked = false;
+      return;
+    }
+    toggle.checked = inputs.every((input) => input.checked);
+  });
 }
 
 function createSortedOrder() {
@@ -418,12 +517,25 @@ tileRows.addEventListener("input", () => {
   }
 });
 
-algoList.addEventListener("change", () => {
+algoList.addEventListener("change", (event) => {
+  if (event.target && event.target.classList.contains("algo-toggle-checkbox")) {
+    return;
+  }
   if (layout) {
     setRunning(false);
     buildPanels();
     resetAll();
+  } else {
+    updateCategoryToggles();
   }
+});
+
+algoList.addEventListener("change", (event) => {
+  const toggle = event.target.closest(".algo-toggle-checkbox");
+  if (!toggle) {
+    return;
+  }
+  toggleCategory(toggle.dataset.group, toggle.checked);
 });
 
 seedRandom.addEventListener("click", () => {

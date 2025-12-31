@@ -162,10 +162,36 @@ h1 {
   border: 1px solid rgba(201, 192, 180, 0.6);
 }
 
+.algo-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
 .algo-group h4 {
   margin: 0;
   font-size: 14px;
   letter-spacing: 0.02em;
+}
+
+.algo-group-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+
+.algo-group-label span {
+  display: inline-block;
+}
+
+.algo-toggle-checkbox {
+  margin: 0;
 }
 
 .algo-options {

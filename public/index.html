@@ -71,7 +71,12 @@
         <label class="label">アルゴリズム</label>
         <div class="checkboxes" id="algoList">
           <div class="algo-group">
-            <h4>比較ソート（Comparison sort）</h4>
+            <div class="algo-group-header">
+              <label class="algo-group-label">
+                <input type="checkbox" class="algo-toggle-checkbox" data-group="comparison" />
+                <span>比較ソート（Comparison sort）</span>
+              </label>
+            </div>
             <div class="algo-options">
               <label><input type="checkbox" value="bubble" checked /> Bubble</label>
               <label><input type="checkbox" value="insertion" checked /> Insertion</label>
@@ -91,7 +96,12 @@
             </div>
           </div>
           <div class="algo-group">
-            <h4>非比較ソート（Non-comparison sort）</h4>
+            <div class="algo-group-header">
+              <label class="algo-group-label">
+                <input type="checkbox" class="algo-toggle-checkbox" data-group="noncomparison" />
+                <span>非比較ソート（Non-comparison sort）</span>
+              </label>
+            </div>
             <div class="algo-options">
               <label><input type="checkbox" value="counting" /> Counting</label>
               <label><input type="checkbox" value="radix" /> Radix</label>
@@ -99,7 +109,12 @@
             </div>
           </div>
           <div class="algo-group">
-            <h4>特殊</h4>
+            <div class="algo-group-header">
+              <label class="algo-group-label">
+                <input type="checkbox" class="algo-toggle-checkbox" data-group="joke" />
+                <span>特殊</span>
+              </label>
+            </div>
             <div class="algo-options">
               <label><input type="checkbox" value="bogo" /> Bogo</label>
               <label><input type="checkbox" value="stalin" /> Stalin</label>
