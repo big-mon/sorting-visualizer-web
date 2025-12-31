@@ -17,6 +17,7 @@ const tileCols = document.getElementById("tileCols");
 const tileColsLabel = document.getElementById("tileColsLabel");
 const tileRows = document.getElementById("tileRows");
 const tileRowsLabel = document.getElementById("tileRowsLabel");
+const tileTotalLabel = document.getElementById("tileTotalLabel");
 const algoList = document.getElementById("algoList");
 const bubbleWarning = document.getElementById("bubbleWarning");
 const seedInput = document.getElementById("seedInput");
@@ -67,19 +68,16 @@ function updateModeUI() {
 function updateTileRows() {
   if (!layout) {
     tileRowsLabel.textContent = "0";
+    tileTotalLabel.textContent = "0";
     return;
   }
   tileRowsLabel.textContent = String(layout.rows);
+  tileTotalLabel.textContent = String(layout.count);
 }
 
 function applyDefaultTileGrid() {
-  if (!baseCanvas.width) {
-    return;
-  }
-  const idealCols = Math.round(baseCanvas.width / 10);
-  const idealRows = Math.round(baseCanvas.height / 10);
-  let nextCols = clamp(idealCols, Number(tileCols.min), Number(tileCols.max));
-  let nextRows = clamp(idealRows, Number(tileRows.min), Number(tileRows.max));
+  let nextCols = clamp(Number(tileCols.value), Number(tileCols.min), Number(tileCols.max));
+  let nextRows = clamp(Number(tileRows.value), Number(tileRows.min), Number(tileRows.max));
   const maxPieces = 250;
   if (nextCols * nextRows > maxPieces) {
     const scale = Math.sqrt(maxPieces / (nextCols * nextRows));
@@ -390,6 +388,7 @@ stripeCount.addEventListener("input", () => {
 
 tileCols.addEventListener("input", () => {
   tileColsLabel.textContent = tileCols.value;
+  tileTotalLabel.textContent = String(Number(tileCols.value) * Number(tileRows.value));
   if (layout) {
     setRunning(false);
     createPieces();
@@ -400,6 +399,7 @@ tileCols.addEventListener("input", () => {
 
 tileRows.addEventListener("input", () => {
   tileRowsLabel.textContent = tileRows.value;
+  tileTotalLabel.textContent = String(Number(tileCols.value) * Number(tileRows.value));
   if (layout) {
     setRunning(false);
     createPieces();
@@ -446,6 +446,7 @@ updateModeUI();
 stripeCountLabel.textContent = stripeCount.value;
 tileColsLabel.textContent = tileCols.value;
 tileRowsLabel.textContent = tileRows.value;
+tileTotalLabel.textContent = String(Number(tileCols.value) * Number(tileRows.value));
 speedLabel.textContent = speedRange.value;
 
 requestAnimationFrame(tick);
