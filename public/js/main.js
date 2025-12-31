@@ -138,7 +138,7 @@ function updateStatsUI(panel) {
   const status = panel.stats.done ? "done" : panel.stats.started ? "running" : "idle";
   panel.statusIcon.classList.remove("status-idle", "status-running", "status-done");
   panel.statusIcon.classList.add(`status-${status}`);
-  panel.statEls.time.textContent = `${panel.stats.elapsed.toFixed(2)}s`;
+  panel.timeLabel.textContent = `${panel.stats.elapsed.toFixed(2)}s`;
 }
 
 function setRunning(next) {
@@ -168,6 +168,10 @@ function buildPanels() {
     const title = document.createElement("h3");
     title.textContent = algo.name;
 
+    const timeLabel = document.createElement("span");
+    timeLabel.className = "panel-time";
+    timeLabel.textContent = "0.00s";
+
     const canvas = document.createElement("canvas");
     const width = layout ? layout.width : 480;
     const height = layout ? layout.height : 360;
@@ -182,10 +186,9 @@ function buildPanels() {
       <div class="stat-item" data-tip="入れ替えが発生した回数">swaps: <span data-stat="swaps">0</span></div>
       <div class="stat-item" data-tip="writeイベントで配列に書き込んだ回数">writes: <span data-stat="writes">0</span></div>
       <div class="stat-item" data-tip="ジェネレータで処理したイベント数">steps: <span data-stat="steps">0</span></div>
-      <div class="stat-item" data-tip="開始からの経過時間">time: <span data-stat="time">0.00s</span></div>
     `;
 
-    titleRow.append(statusIcon, title);
+    titleRow.append(statusIcon, title, timeLabel);
     panel.append(titleRow, canvas, stats);
     panelGrid.append(panel);
 
@@ -203,9 +206,9 @@ function buildPanels() {
         swaps: stats.querySelector("[data-stat='swaps']"),
         writes: stats.querySelector("[data-stat='writes']"),
         steps: stats.querySelector("[data-stat='steps']"),
-        time: stats.querySelector("[data-stat='time']"),
       },
       statusIcon,
+      timeLabel,
     };
     panelObj.order = createSortedOrder();
     resetStats(panelObj);
