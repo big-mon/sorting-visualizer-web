@@ -76,8 +76,14 @@ function applyDefaultTileGrid() {
   }
   const idealCols = Math.round(baseCanvas.width / 10);
   const idealRows = Math.round(baseCanvas.height / 10);
-  const nextCols = clamp(idealCols, Number(tileCols.min), Number(tileCols.max));
-  const nextRows = clamp(idealRows, Number(tileRows.min), Number(tileRows.max));
+  let nextCols = clamp(idealCols, Number(tileCols.min), Number(tileCols.max));
+  let nextRows = clamp(idealRows, Number(tileRows.min), Number(tileRows.max));
+  const maxPieces = 250;
+  if (nextCols * nextRows > maxPieces) {
+    const scale = Math.sqrt(maxPieces / (nextCols * nextRows));
+    nextCols = Math.max(1, Math.floor(nextCols * scale));
+    nextRows = Math.max(1, Math.floor(nextRows * scale));
+  }
   tileCols.value = String(nextCols);
   tileRows.value = String(nextRows);
   tileColsLabel.textContent = tileCols.value;
