@@ -4,7 +4,11 @@ export function renderPanel(ctx, baseCanvas, pieces, layout, order, highlight) {
   ctx.imageSmoothingEnabled = true;
 
   for (let pos = 0; pos < order.length; pos += 1) {
-    const piece = pieces[order[pos]];
+    const pieceIndex = order[pos];
+    if (pieceIndex == null) {
+      continue;
+    }
+    const piece = pieces[pieceIndex];
     const col = pos % cols;
     const row = Math.floor(pos / cols);
     const dx = col * pieceW;

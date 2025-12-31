@@ -665,6 +665,26 @@ export function* bogoSort(order, getKey) {
   yield* insertionSort(order, getKey);
 }
 
+export function* stalinSort(order, getKey) {
+  const n = order.length;
+  if (n <= 1) {
+    return;
+  }
+  let lastKeptIndex = 0;
+  let maxKey = getKey(order[0]);
+  for (let i = 1; i < n; i += 1) {
+    yield { type: "cmp", i: lastKeptIndex, j: i };
+    const key = getKey(order[i]);
+    if (key >= maxKey) {
+      maxKey = key;
+      lastKeptIndex = i;
+    } else {
+      order[i] = null;
+      yield { type: "write", index: i, value: null };
+    }
+  }
+}
+
 export const algorithms = {
   bubble: { name: "Bubble", generator: bubbleSort },
   insertion: { name: "Insertion", generator: insertionSort },
@@ -685,4 +705,5 @@ export const algorithms = {
   radix: { name: "Radix", generator: radixSort },
   bucket: { name: "Bucket", generator: bucketSort },
   bogo: { name: "Bogo", generator: bogoSort },
+  stalin: { name: "Stalin", generator: stalinSort },
 };
