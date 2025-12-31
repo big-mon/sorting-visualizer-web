@@ -3,7 +3,7 @@
 画像を分割したピースをソート対象として扱い、同じ初期シャッフル状態から複数のソートアルゴリズムを同時に走らせる比較サイトです。Canvas でアニメーション表示し、ソートが進むにつれて画像が復元されます。
 
 ## 使い方
-1. `index.html` をブラウザで開きます（Cloudflare Pages など静的ホスティングでも動作）。
+1. `public/index.html` をブラウザで開きます（Cloudflare Pages など静的ホスティングでも動作）。
 2. 画像をアップロードします。
 3. 分割モード（縦ストライプ/タイル）と分割数（タイルは列/行）を調整します。
 4. 比較したいアルゴリズムをチェックします。
@@ -22,10 +22,10 @@
 - 分割数を増減して動作確認（Bubble が自動で無効化されることも確認）
 
 ## ファイル構成
-- `index.html`
-- `styles.css`
-- `js/main.js`
-- `js/renderer.js`
-- `js/algorithms.js`
-- `js/rng.js`
-- `js/image_slicer.js`
+- `public/index.html`
+- `public/styles.css`
+- `public/js/main.js`
+- `public/js/renderer.js`
+- `public/js/algorithms.js`
+- `public/js/rng.js`
+- `public/js/image_slicer.js`
