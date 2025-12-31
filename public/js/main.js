@@ -136,7 +136,6 @@ function updateStatsUI(panel) {
   panel.statEls.writes.textContent = panel.stats.writes;
   panel.statEls.steps.textContent = panel.stats.steps;
   const status = panel.stats.done ? "done" : panel.stats.started ? "running" : "idle";
-  panel.statEls.done.textContent = status;
   panel.statusIcon.classList.remove("status-idle", "status-running", "status-done");
   panel.statusIcon.classList.add(`status-${status}`);
   panel.statEls.time.textContent = `${panel.stats.elapsed.toFixed(2)}s`;
@@ -183,7 +182,6 @@ function buildPanels() {
       <div class="stat-item" data-tip="入れ替えが発生した回数">swaps: <span data-stat="swaps">0</span></div>
       <div class="stat-item" data-tip="writeイベントで配列に書き込んだ回数">writes: <span data-stat="writes">0</span></div>
       <div class="stat-item" data-tip="ジェネレータで処理したイベント数">steps: <span data-stat="steps">0</span></div>
-      <div class="stat-item" data-tip="現在の状態">status: <span data-stat="done">idle</span></div>
       <div class="stat-item" data-tip="開始からの経過時間">time: <span data-stat="time">0.00s</span></div>
     `;
 
@@ -205,7 +203,6 @@ function buildPanels() {
         swaps: stats.querySelector("[data-stat='swaps']"),
         writes: stats.querySelector("[data-stat='writes']"),
         steps: stats.querySelector("[data-stat='steps']"),
-        done: stats.querySelector("[data-stat='done']"),
         time: stats.querySelector("[data-stat='time']"),
       },
       statusIcon,
