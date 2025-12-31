@@ -9,6 +9,8 @@
   --accent-2: #2a9d8f;
   --stroke: #c9c0b4;
   --shadow: 0 14px 30px rgba(38, 34, 30, 0.12);
+  --layout-max: 1200px;
+  --layout-pad: 20px;
 }
 
 * {
@@ -24,11 +26,11 @@ body {
 }
 
 .hero {
-  padding: 36px 20px 10px;
+  padding: 36px var(--layout-pad) 10px;
 }
 
 .hero-inner {
-  max-width: 1100px;
+  max-width: var(--layout-max);
   margin: 0 auto;
   background: linear-gradient(120deg, rgba(231, 111, 81, 0.2), rgba(42, 157, 143, 0.1));
   border: 1px solid rgba(0, 0, 0, 0.05);
@@ -59,9 +61,9 @@ h1 {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: calc(var(--layout-max) + (var(--layout-pad) * 2));
   margin: 0 auto;
-  padding: 20px;
+  padding: var(--layout-pad);
   display: grid;
   gap: 22px;
 }
