@@ -93,6 +93,16 @@ h1 {
   gap: 6px;
 }
 
+.controls label {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.controls .label {
+  font-weight: 700;
+}
+
 .hidden {
   display: none;
 }
