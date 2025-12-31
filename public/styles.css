@@ -88,7 +88,7 @@ h1 {
 
 @media (min-width: 900px) {
   .control-row {
-    grid-template-columns: minmax(220px, 300px) minmax(320px, 1fr) minmax(240px, 320px);
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
     align-items: start;
   }
 }
