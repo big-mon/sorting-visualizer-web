@@ -98,9 +98,8 @@ function applyBubbleLimit() {
     return;
   }
   if (layout.count > BUBBLE_LIMIT) {
-    bubbleWarning.textContent = `Bubbleは${BUBBLE_LIMIT}ピース以上だと重いため無効化しました。`;
-    bubbleCheckbox.checked = false;
-    bubbleCheckbox.disabled = true;
+    bubbleWarning.textContent = `Bubbleは${BUBBLE_LIMIT}ピース以上だと重くなる可能性があります。`;
+    bubbleCheckbox.disabled = false;
   } else {
     bubbleWarning.textContent = "";
     bubbleCheckbox.disabled = false;
