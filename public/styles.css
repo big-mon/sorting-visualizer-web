@@ -274,9 +274,38 @@ input[type="range"] {
   animation: fadeUp 0.5s ease;
 }
 
+.panel-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .panel h3 {
   margin: 0;
   font-size: 18px;
+}
+
+.status-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  border: 2px solid #ffffff;
+  background: #b9b1a6;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+.status-dot.status-idle {
+  background: #b9b1a6;
+}
+
+.status-dot.status-running {
+  background: #e76f51;
+  box-shadow: 0 0 0 1px rgba(231, 111, 81, 0.35), 0 0 10px rgba(231, 111, 81, 0.6);
+}
+
+.status-dot.status-done {
+  background: #2a9d8f;
+  box-shadow: 0 0 0 1px rgba(42, 157, 143, 0.35), 0 0 10px rgba(42, 157, 143, 0.6);
 }
 
 .panel canvas {

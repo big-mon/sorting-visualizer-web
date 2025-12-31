@@ -137,6 +137,8 @@ function updateStatsUI(panel) {
   panel.statEls.steps.textContent = panel.stats.steps;
   const status = panel.stats.done ? "done" : panel.stats.started ? "running" : "idle";
   panel.statEls.done.textContent = status;
+  panel.statusIcon.classList.remove("status-idle", "status-running", "status-done");
+  panel.statusIcon.classList.add(`status-${status}`);
   panel.statEls.time.textContent = `${panel.stats.elapsed.toFixed(2)}s`;
 }
 
@@ -157,6 +159,12 @@ function buildPanels() {
     const algo = algorithms[key];
     const panel = document.createElement("div");
     panel.className = "panel";
+
+    const titleRow = document.createElement("div");
+    titleRow.className = "panel-title";
+
+    const statusIcon = document.createElement("span");
+    statusIcon.className = "status-dot status-idle";
 
     const title = document.createElement("h3");
     title.textContent = algo.name;
@@ -179,7 +187,8 @@ function buildPanels() {
       <div class="stat-item" data-tip="開始からの経過時間">time: <span data-stat="time">0.00s</span></div>
     `;
 
-    panel.append(title, canvas, stats);
+    titleRow.append(statusIcon, title);
+    panel.append(titleRow, canvas, stats);
     panelGrid.append(panel);
 
     const panelObj = {
@@ -199,6 +208,7 @@ function buildPanels() {
         done: stats.querySelector("[data-stat='done']"),
         time: stats.querySelector("[data-stat='time']"),
       },
+      statusIcon,
     };
     panelObj.order = createSortedOrder();
     resetStats(panelObj);
