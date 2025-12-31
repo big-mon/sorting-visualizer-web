@@ -171,12 +171,12 @@ function buildPanels() {
     const stats = document.createElement("div");
     stats.className = "stats";
     stats.innerHTML = `
-      <div>comparisons: <span data-stat="comparisons">0</span></div>
-      <div>swaps: <span data-stat="swaps">0</span></div>
-      <div>writes: <span data-stat="writes">0</span></div>
-      <div>steps: <span data-stat="steps">0</span></div>
-      <div>status: <span data-stat="done">idle</span></div>
-      <div>time: <span data-stat="time">0.00s</span></div>
+      <div class="stat-item" data-tip="要素同士を比較した回数">comparisons: <span data-stat="comparisons">0</span></div>
+      <div class="stat-item" data-tip="入れ替えが発生した回数">swaps: <span data-stat="swaps">0</span></div>
+      <div class="stat-item" data-tip="writeイベントで配列に書き込んだ回数">writes: <span data-stat="writes">0</span></div>
+      <div class="stat-item" data-tip="ジェネレータで処理したイベント数">steps: <span data-stat="steps">0</span></div>
+      <div class="stat-item" data-tip="現在の状態">status: <span data-stat="done">idle</span></div>
+      <div class="stat-item" data-tip="開始からの経過時間">time: <span data-stat="time">0.00s</span></div>
     `;
 
     panel.append(title, canvas, stats);

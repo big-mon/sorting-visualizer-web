@@ -299,6 +299,36 @@ input[type="range"] {
   color: var(--ink);
 }
 
+.stat-item {
+  position: relative;
+  display: inline-block;
+  width: max-content;
+  cursor: help;
+}
+
+.stat-item::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 6px);
+  background: #1c1b1a;
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-size: 11px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 2;
+}
+
+.stat-item:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .footer {
   padding: 20px;
   text-align: center;
