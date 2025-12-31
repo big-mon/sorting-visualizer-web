@@ -81,6 +81,18 @@ h1 {
   gap: 8px;
 }
 
+.control-row {
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 900px) {
+  .control-row {
+    grid-template-columns: minmax(220px, 300px) minmax(320px, 1fr) minmax(240px, 320px);
+    align-items: start;
+  }
+}
+
 .label {
   font-weight: 700;
   letter-spacing: 0.04em;

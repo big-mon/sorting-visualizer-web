@@ -17,42 +17,44 @@
 
   <main class="container">
     <section class="controls" aria-label="コントロール">
-      <div class="control-group">
-        <label class="label">画像アップロード</label>
-        <input id="fileInput" type="file" accept="image/*" />
-      </div>
+      <div class="control-row">
+        <div class="control-group">
+          <label class="label">画像アップロード</label>
+          <input id="fileInput" type="file" accept="image/*" />
+        </div>
 
-      <div class="control-group">
-        <label class="label">分割モード</label>
-        <div class="split-row">
-          <div class="segmented">
-            <label><input type="radio" name="splitMode" value="stripes" checked /> 縦ストライプ</label>
-            <label><input type="radio" name="splitMode" value="tiles" /> タイル</label>
-          </div>
-          <div class="split-controls">
-            <div id="stripesControls" class="sub-controls">
-              <label>分割数 <span id="stripeCountLabel">160</span></label>
-              <input id="stripeCount" type="range" min="20" max="400" value="160" />
+        <div class="control-group">
+          <label class="label">分割モード</label>
+          <div class="split-row">
+            <div class="segmented">
+              <label><input type="radio" name="splitMode" value="stripes" checked /> 縦ストライプ</label>
+              <label><input type="radio" name="splitMode" value="tiles" /> タイル</label>
             </div>
-            <div id="tilesControls" class="sub-controls hidden">
-              <label>列数 <span id="tileColsLabel">40</span> / 行数 <span id="tileRowsLabel">30</span></label>
-              <input id="tileCols" type="range" min="8" max="80" value="40" />
-              <input id="tileRows" type="range" min="6" max="80" value="30" />
+            <div class="split-controls">
+              <div id="stripesControls" class="sub-controls">
+                <label>分割数 <span id="stripeCountLabel">160</span></label>
+                <input id="stripeCount" type="range" min="20" max="400" value="160" />
+              </div>
+              <div id="tilesControls" class="sub-controls hidden">
+                <label>列数 <span id="tileColsLabel">40</span> / 行数 <span id="tileRowsLabel">30</span></label>
+                <input id="tileCols" type="range" min="8" max="80" value="40" />
+                <input id="tileRows" type="range" min="6" max="80" value="30" />
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="control-group">
-        <label class="label">Seed / Shuffle</label>
-        <div class="seed-row">
-          <input id="seedInput" type="number" placeholder="Seed" />
-          <button id="seedRandom" class="ghost" type="button">Random</button>
-        </div>
-        <div class="button-row">
-          <button id="shuffleBtn" type="button">Shuffle</button>
-          <button id="startBtn" type="button">Start</button>
-          <button id="resetBtn" class="ghost" type="button">Reset</button>
+        <div class="control-group">
+          <label class="label">Seed / Shuffle</label>
+          <div class="seed-row">
+            <input id="seedInput" type="number" placeholder="Seed" />
+            <button id="seedRandom" class="ghost" type="button">Random</button>
+          </div>
+          <div class="button-row">
+            <button id="shuffleBtn" type="button">Shuffle</button>
+            <button id="startBtn" type="button">Start</button>
+            <button id="resetBtn" class="ghost" type="button">Reset</button>
+          </div>
         </div>
       </div>
 
