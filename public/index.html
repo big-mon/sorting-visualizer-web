@@ -134,62 +134,137 @@
         <div class="algo-list">
           <article>
             <h3>Bubble</h3>
+            <div class="algo-badges">
+              <span class="badge" data-tip="同じキーの要素の相対順序が保たれるか">安定性: Stable</span>
+              <span class="badge">計算量: Avg O(n^2)</span>
+              <span class="badge">特性: Teaching</span>
+            </div>
             <p>1950年代に広まった古典手法。隣接要素を比較して入れ替えを繰り返し、端へ泡のように移動させます。</p>
           </article>
           <article>
             <h3>Insertion</h3>
+            <div class="algo-badges">
+              <span class="badge" data-tip="同じキーの要素の相対順序が保たれるか">安定性: Stable</span>
+              <span class="badge">計算量: Avg O(n^2)</span>
+              <span class="badge">特性: Nearly-sorted</span>
+            </div>
             <p>1950年代から使われてきた定番。整列済み部分に要素を差し込み、局所的に少しずつ並べ替えます。</p>
           </article>
           <article>
             <h3>Selection</h3>
+            <div class="algo-badges">
+              <span class="badge" data-tip="同じキーの要素の相対順序が保たれるか">安定性: Unstable</span>
+              <span class="badge">計算量: Avg O(n^2)</span>
+              <span class="badge">特性: Few swaps</span>
+            </div>
             <p>1950年代に登場した古典。未整列部分から最小を選び、先頭へ置く操作を繰り返します。</p>
           </article>
           <article>
             <h3>Quick</h3>
+            <div class="algo-badges">
+              <span class="badge" data-tip="同じキーの要素の相対順序が保たれるか">安定性: Unstable</span>
+              <span class="badge">計算量: Avg O(n log n)</span>
+              <span class="badge">特性: Cache-friendly</span>
+            </div>
             <p>1960年代にHoareが提案。ピボットで分割し、左右を再帰的に整列する高速な分割統治法です。</p>
           </article>
           <article>
             <h3>Merge</h3>
+            <div class="algo-badges">
+              <span class="badge" data-tip="同じキーの要素の相対順序が保たれるか">安定性: Stable</span>
+              <span class="badge">計算量: Worst O(n log n)</span>
+              <span class="badge">特性: External sort</span>
+            </div>
             <p>1945年ごろに提案。配列を分割して整列し、安定なマージで戻す分割統治法です。</p>
           </article>
           <article>
             <h3>Heap</h3>
+            <div class="algo-badges">
+              <span class="badge" data-tip="同じキーの要素の相対順序が保たれるか">安定性: Unstable</span>
+              <span class="badge">計算量: Worst O(n log n)</span>
+              <span class="badge">特性: In-place</span>
+            </div>
             <p>1964年にWilliamsが提案。ヒープ構造で最大/最小を取り出しながら並べ替えます。</p>
           </article>
           <article>
             <h3>Shell</h3>
+            <div class="algo-badges">
+              <span class="badge" data-tip="同じキーの要素の相対順序が保たれるか">安定性: Unstable</span>
+              <span class="badge">計算量: Avg O(n^2)</span>
+              <span class="badge">特性: Gap insertion</span>
+            </div>
             <p>1959年にShellが提案。間隔を空けた挿入ソートを繰り返し、最終的に通常挿入へ収束します。</p>
           </article>
           <article>
             <h3>Intro</h3>
+            <div class="algo-badges">
+              <span class="badge" data-tip="同じキーの要素の相対順序が保たれるか">安定性: Unstable</span>
+              <span class="badge">計算量: Worst O(n log n)</span>
+              <span class="badge">特性: Stdlib</span>
+            </div>
             <p>1997年にMusserが提案。クイックの平均性能を使いつつ、深さが増えるとヒープに切替えます。</p>
           </article>
           <article>
             <h3>Tim</h3>
+            <div class="algo-badges">
+              <span class="badge" data-tip="同じキーの要素の相対順序が保たれるか">安定性: Stable</span>
+              <span class="badge">計算量: Worst O(n log n)</span>
+              <span class="badge">特性: Stdlib</span>
+            </div>
             <p>2002年にPetersが提案。局所的な並び（ラン）を見つけて挿入・マージで統合する実用型です。</p>
           </article>
           <article>
             <h3>Comb</h3>
+            <div class="algo-badges">
+              <span class="badge" data-tip="同じキーの要素の相対順序が保たれるか">安定性: Unstable</span>
+              <span class="badge">計算量: Avg O(n^2)</span>
+              <span class="badge">特性: Bubble gap</span>
+            </div>
             <p>1991年にDoboxらが提案。比較間隔を広げたバブル改良で、ギャップを縮めながら整列します。</p>
           </article>
           <article>
             <h3>Cocktail</h3>
+            <div class="algo-badges">
+              <span class="badge" data-tip="同じキーの要素の相対順序が保たれるか">安定性: Stable</span>
+              <span class="badge">計算量: Avg O(n^2)</span>
+              <span class="badge">特性: Bidirectional</span>
+            </div>
             <p>1980年代に知られた手法。前後に往復しながらバブル操作を行い、両端を詰めていきます。</p>
           </article>
           <article>
             <h3>Gnome</h3>
+            <div class="algo-badges">
+              <span class="badge" data-tip="同じキーの要素の相対順序が保たれるか">安定性: Stable</span>
+              <span class="badge">計算量: Avg O(n^2)</span>
+              <span class="badge">特性: Simple</span>
+            </div>
             <p>2000年代に名称が広まりました。逆順を見つけたら一歩戻る操作で局所的に整列します。</p>
           </article>
           <article>
             <h3>Odd-even</h3>
+            <div class="algo-badges">
+              <span class="badge" data-tip="同じキーの要素の相対順序が保たれるか">安定性: Stable</span>
+              <span class="badge">計算量: Avg O(n^2)</span>
+              <span class="badge">特性: Parallel</span>
+            </div>
             <p>1970年代から知られる方法。奇数・偶数インデックスのペアを交互に比較し、並列化に向きます。</p>
           </article>
           <article>
             <h3>Bitonic</h3>
+            <div class="algo-badges">
+              <span class="badge" data-tip="同じキーの要素の相対順序が保たれるか">安定性: Unstable</span>
+              <span class="badge">計算量: O(n log^2 n)</span>
+              <span class="badge">特性: Parallel</span>
+            </div>
             <p>1968年にBatcherが提案。ビトニック列を作って比較ネットワークで整列します。</p>
           </article>
           <article>
             <h3>Odd-even merge</h3>
+            <div class="algo-badges">
+              <span class="badge" data-tip="同じキーの要素の相対順序が保たれるか">安定性: Unstable</span>
+              <span class="badge">計算量: O(n log^2 n)</span>
+              <span class="badge">特性: Parallel</span>
+            </div>
             <p>1968年にBatcherが提案。奇偶マージネットワークで規則的に比較し、並列実装に向きます。</p>
           </article>
         </div>
@@ -199,14 +274,29 @@
         <div class="algo-list">
           <article>
             <h3>Counting</h3>
+            <div class="algo-badges">
+              <span class="badge" data-tip="同じキーの要素の相対順序が保たれるか">安定性: Stable</span>
+              <span class="badge">計算量: O(n+k)</span>
+              <span class="badge">特性: Range-limited</span>
+            </div>
             <p>1950年代に普及。値の出現回数を数えて位置を決める非比較型で、範囲が狭いと高速です。</p>
           </article>
           <article>
             <h3>Radix</h3>
+            <div class="algo-badges">
+              <span class="badge" data-tip="同じキーの要素の相対順序が保たれるか">安定性: Stable</span>
+              <span class="badge">計算量: O(d(n+k))</span>
+              <span class="badge">特性: Integer keys</span>
+            </div>
             <p>19世紀末から概念があり、1950年代に実用化。桁ごとに安定ソートを繰り返します。</p>
           </article>
           <article>
             <h3>Bucket</h3>
+            <div class="algo-badges">
+              <span class="badge" data-tip="同じキーの要素の相対順序が保たれるか">安定性: Stable</span>
+              <span class="badge">計算量: Avg O(n+k)</span>
+              <span class="badge">特性: Uniform dist</span>
+            </div>
             <p>1956年ごろの提案。範囲を区切ってバケツに分配し、各バケツを個別に整列します。</p>
           </article>
         </div>
@@ -216,10 +306,20 @@
         <div class="algo-list">
           <article>
             <h3>Bogo</h3>
+            <div class="algo-badges">
+              <span class="badge" data-tip="同じキーの要素の相対順序が保たれるか">安定性: Unstable</span>
+              <span class="badge">計算量: Unbounded</span>
+              <span class="badge">特性: Joke</span>
+            </div>
             <p>1980年代にジョークとして流行。無作為に並べ替え、偶然整列するのを待ちます。</p>
           </article>
           <article>
             <h3>Stalin</h3>
+            <div class="algo-badges">
+              <span class="badge" data-tip="同じキーの要素の相対順序が保たれるか">安定性: Not a full sort</span>
+              <span class="badge">計算量: O(n)</span>
+              <span class="badge">特性: Joke</span>
+            </div>
             <p>2010年代のジョーク。順序を乱す要素を粛清して捨て、残った列だけが整列済みになります。</p>
           </article>
         </div>
