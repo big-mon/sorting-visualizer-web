@@ -1,4 +1,4 @@
-import { algorithms } from "./algorithms.js";
+import { algorithms } from "./algorithms.js?v=2";
 import { mulberry32, normalizeSeed, randomSeed } from "./rng.js";
 import { computeTargetSize, sliceImage } from "./image_slicer.js";
 import { renderPanel } from "./renderer.js";

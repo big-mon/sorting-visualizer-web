@@ -76,6 +76,19 @@
           <label><input type="checkbox" value="quick" checked /> Quick</label>
           <label><input type="checkbox" value="merge" checked /> Merge</label>
           <label><input type="checkbox" value="heap" /> Heap</label>
+          <label><input type="checkbox" value="shell" /> Shell</label>
+          <label><input type="checkbox" value="intro" /> Intro</label>
+          <label><input type="checkbox" value="tim" /> Tim</label>
+          <label><input type="checkbox" value="comb" /> Comb</label>
+          <label><input type="checkbox" value="cocktail" /> Cocktail</label>
+          <label><input type="checkbox" value="gnome" /> Gnome</label>
+          <label><input type="checkbox" value="oddEven" /> Odd-even</label>
+          <label><input type="checkbox" value="bitonic" /> Bitonic</label>
+          <label><input type="checkbox" value="oddEvenMerge" /> Odd-even merge</label>
+          <label><input type="checkbox" value="counting" /> Counting</label>
+          <label><input type="checkbox" value="radix" /> Radix</label>
+          <label><input type="checkbox" value="bucket" /> Bucket</label>
+          <label><input type="checkbox" value="bogo" /> Bogo</label>
         </div>
         <p class="hint" id="bubbleWarning"></p>
       </div>
@@ -110,6 +123,58 @@
           <h3>Heap</h3>
           <p>木構造のルールを使って最大/最小を取り出す方法。1960年代に登場し、安定して速めです。</p>
         </article>
+        <article>
+          <h3>Shell</h3>
+          <p>一定間隔で挿入ソートを繰り返し、徐々に間隔を狭める方法。1950年代に提案された改良型です。</p>
+        </article>
+        <article>
+          <h3>Intro</h3>
+          <p>クイックの速さとヒープの最悪保証を合わせたハイブリッド。深さが深いとヒープに切り替えます。</p>
+        </article>
+        <article>
+          <h3>Tim</h3>
+          <p>小さな区間は挿入、全体はマージでまとめる実用型。実際の標準ライブラリにも使われることが多いです。</p>
+        </article>
+        <article>
+          <h3>Comb</h3>
+          <p>バブルソートの間隔を広げた改良版。櫛の歯のように比較して徐々に詰めていきます。</p>
+        </article>
+        <article>
+          <h3>Cocktail</h3>
+          <p>左右に行き来しながらバブルする双方向版。端の要素を効率良く動かせます。</p>
+        </article>
+        <article>
+          <h3>Gnome</h3>
+          <p>逆順に出会ったら一歩戻る、を繰り返すシンプルな方法。動きが直感的です。</p>
+        </article>
+        <article>
+          <h3>Odd-even</h3>
+          <p>奇数ペアと偶数ペアを交互に比較する方法。並列化しやすい特徴があります。</p>
+        </article>
+        <article>
+          <h3>Bitonic</h3>
+          <p>ビトニック列を作って整列するソーティングネットワーク。ハードウェア向けにも使われます。</p>
+        </article>
+        <article>
+          <h3>Odd-even merge</h3>
+          <p>Batcherの奇偶マージネットワークを使う手法。比較回数が規則的です。</p>
+        </article>
+        <article>
+          <h3>Counting</h3>
+          <p>値の出現回数を数えて位置を決める非比較型。範囲が狭いととても速いです。</p>
+        </article>
+        <article>
+          <h3>Radix</h3>
+          <p>桁ごとに安定ソートを繰り返す非比較型。整数に強く、大きな配列でも安定します。</p>
+        </article>
+        <article>
+          <h3>Bucket</h3>
+          <p>値の範囲をいくつかのバケツに分け、各バケツを整列します。分布が均一なときに有利です。</p>
+        </article>
+        <article>
+          <h3>Bogo</h3>
+          <p>無作為に並べ替えて偶然揃うのを待つネタ枠。小さな配列でのみ現実的です。</p>
+        </article>
       </div>
     </section>
   </main>
@@ -118,6 +183,6 @@
     <p>Runs fully in your browser. No uploads, no servers.</p>
   </footer>
 
-  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/main.js?v=2"></script>
 </body>
 </html>
