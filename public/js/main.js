@@ -335,6 +335,22 @@ function handleFile(file) {
   img.src = url;
 }
 
+function loadDefaultImage() {
+  const img = new Image();
+  img.onload = () => {
+    const target = computeTargetSize(img.width, img.height, MAX_W, MAX_H);
+    baseCanvas.width = target.width;
+    baseCanvas.height = target.height;
+    baseCtx.clearRect(0, 0, target.width, target.height);
+    baseCtx.drawImage(img, 0, 0, target.width, target.height);
+    applyDefaultTileGrid();
+    createPieces();
+    buildPanels();
+    resetAll();
+  };
+  img.src = "sample-pastel-image.jpg";
+}
+
 fileInput.addEventListener("change", (event) => {
   handleFile(event.target.files[0]);
 });
@@ -425,3 +441,4 @@ tileRowsLabel.textContent = tileRows.value;
 speedLabel.textContent = speedRange.value;
 
 requestAnimationFrame(tick);
+loadDefaultImage();
