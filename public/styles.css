@@ -99,12 +99,29 @@ h1 {
 
 .segmented {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .segmented input {
   margin-right: 6px;
+}
+
+.split-row {
+  display: grid;
+  gap: 12px;
+}
+
+.split-controls {
+  flex: 1;
+}
+
+@media (min-width: 720px) {
+  .split-row {
+    grid-template-columns: minmax(220px, 260px) 1fr;
+    align-items: center;
+  }
 }
 
 .checkboxes {
