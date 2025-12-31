@@ -200,9 +200,11 @@ h1 {
 
 .algo-options {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, max-content));
   gap: 6px 12px;
   padding-left: 18px;
+  justify-items: start;
+  justify-content: start;
 }
 
 .hint {
