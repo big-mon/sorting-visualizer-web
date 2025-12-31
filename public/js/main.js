@@ -35,7 +35,9 @@ let pieces = [];
 let layout = null;
 let panels = [];
 let running = false;
-let stepsPerFrame = Number(speedRange.value);
+let stepsPerSecond = Number(speedRange.value);
+let stepCarry = 0;
+let lastTick = 0;
 
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
@@ -301,9 +303,15 @@ function renderAll() {
 }
 
 function tick() {
+  const now = performance.now();
+  const delta = lastTick ? (now - lastTick) / 1000 : 0;
+  lastTick = now;
   if (running && layout) {
     ensureGenerators();
-    for (let s = 0; s < stepsPerFrame; s += 1) {
+    stepCarry += stepsPerSecond * delta;
+    const stepsToRun = Math.floor(stepCarry);
+    stepCarry -= stepsToRun;
+    for (let s = 0; s < stepsToRun; s += 1) {
       panels.forEach(stepPanel);
     }
     renderAll();
@@ -430,7 +438,7 @@ resetBtn.addEventListener("click", () => {
 });
 
 speedRange.addEventListener("input", () => {
-  stepsPerFrame = Number(speedRange.value);
+  stepsPerSecond = Number(speedRange.value);
   speedLabel.textContent = speedRange.value;
 });
 
