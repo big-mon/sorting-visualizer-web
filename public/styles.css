@@ -181,9 +181,13 @@ h1 {
   gap: 8px;
   margin: 0;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.02em;
   cursor: pointer;
+}
+
+.controls .algo-group-label {
+  font-weight: 800;
 }
 
 .algo-group-label span {
