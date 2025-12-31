@@ -18,6 +18,8 @@ const tileColsLabel = document.getElementById("tileColsLabel");
 const tileRows = document.getElementById("tileRows");
 const tileRowsLabel = document.getElementById("tileRowsLabel");
 const tileTotalLabel = document.getElementById("tileTotalLabel");
+const panelCols = document.getElementById("panelCols");
+const panelColsLabel = document.getElementById("panelColsLabel");
 const algoList = document.getElementById("algoList");
 const bubbleWarning = document.getElementById("bubbleWarning");
 const seedInput = document.getElementById("seedInput");
@@ -39,6 +41,9 @@ let running = false;
 let stepsPerSecond = Number(speedRange.value);
 let stepCarry = 0;
 let lastTick = 0;
+
+const PANEL_MIN_WIDTH = 260;
+const PANEL_GAP = 18;
 
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
@@ -73,6 +78,31 @@ function updateTileRows() {
   }
   tileRowsLabel.textContent = String(layout.rows);
   tileTotalLabel.textContent = String(layout.count);
+}
+
+function computePanelMaxCols() {
+  const width = panelGrid.clientWidth;
+  if (!width) {
+    return Number(panelCols.max) || 1;
+  }
+  return Math.max(
+    1,
+    Math.floor((width + PANEL_GAP) / (PANEL_MIN_WIDTH + PANEL_GAP))
+  );
+}
+
+function applyPanelColumns() {
+  panelColsLabel.textContent = panelCols.value;
+  panelGrid.style.setProperty("--panel-columns", panelCols.value);
+}
+
+function updatePanelColumnsLimit() {
+  const maxCols = computePanelMaxCols();
+  panelCols.max = String(maxCols);
+  if (Number(panelCols.value) > maxCols) {
+    panelCols.value = String(maxCols);
+  }
+  applyPanelColumns();
 }
 
 function applyDefaultTileGrid() {
@@ -564,12 +594,21 @@ speedRange.addEventListener("input", () => {
   speedLabel.textContent = speedRange.value;
 });
 
+panelCols.addEventListener("input", () => {
+  updatePanelColumnsLimit();
+});
+
+window.addEventListener("resize", () => {
+  updatePanelColumnsLimit();
+});
+
 updateModeUI();
 stripeCountLabel.textContent = stripeCount.value;
 tileColsLabel.textContent = tileCols.value;
 tileRowsLabel.textContent = tileRows.value;
 tileTotalLabel.textContent = String(Number(tileCols.value) * Number(tileRows.value));
 speedLabel.textContent = speedRange.value;
+updatePanelColumnsLimit();
 
 requestAnimationFrame(tick);
 loadDefaultImage();
