@@ -8,10 +8,17 @@ export function mulberry32(seed) {
   };
 }
 
+export function randomSeed() {
+  return Math.floor(Math.random() * 1000000000) + 1;
+}
+
 export function normalizeSeed(value) {
+  if (value === "" || value == null) {
+    return randomSeed();
+  }
   const parsed = Number(value);
   if (Number.isFinite(parsed)) {
-    return parsed | 0;
+    return Math.trunc(parsed);
   }
-  return (Date.now() ^ (Math.random() * 0xffffffff)) | 0;
+  return randomSeed();
 }

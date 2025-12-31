@@ -1,5 +1,5 @@
 import { algorithms } from "./algorithms.js";
-import { mulberry32, normalizeSeed } from "./rng.js";
+import { mulberry32, normalizeSeed, randomSeed } from "./rng.js";
 import { computeTargetSize, sliceImage } from "./image_slicer.js";
 import { renderPanel } from "./renderer.js";
 
@@ -361,7 +361,7 @@ function loadDefaultImage() {
     applyDefaultTileGrid();
     createPieces();
     buildPanels();
-    seedInput.value = normalizeSeed("");
+    seedInput.value = randomSeed();
     shuffleAll();
   };
   img.src = "sample-pastel-image.jpg";
@@ -427,7 +427,7 @@ algoList.addEventListener("change", () => {
 });
 
 seedRandom.addEventListener("click", () => {
-  seedInput.value = normalizeSeed("");
+  seedInput.value = randomSeed();
 });
 
 shuffleBtn.addEventListener("click", () => {
