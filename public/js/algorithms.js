@@ -694,7 +694,7 @@ export const algorithms = {
   heap: { name: "Heap", generator: heapSort },
   shell: { name: "Shell", generator: shellSort },
   intro: { name: "Intro", generator: introSort },
-  tim: { name: "Tim", generator: timSort },
+  tim: { name: "Tim (簡易)", generator: timSort },
   comb: { name: "Comb", generator: combSort },
   cocktail: { name: "Cocktail", generator: cocktailSort },
   gnome: { name: "Gnome", generator: gnomeSort },
