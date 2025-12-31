@@ -224,6 +224,45 @@ input[type="range"] {
   gap: 18px;
 }
 
+.algo-notes {
+  background: var(--panel);
+  border-radius: 18px;
+  padding: 20px;
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 14px;
+}
+
+.algo-notes h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.algo-list {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.algo-list article {
+  padding: 12px;
+  border-radius: 12px;
+  background: #f8f1e8;
+  border: 1px solid rgba(201, 192, 180, 0.6);
+}
+
+.algo-list h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.algo-list p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
 .panel {
   background: var(--panel);
   border-radius: 16px;
