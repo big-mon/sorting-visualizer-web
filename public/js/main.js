@@ -361,7 +361,8 @@ function loadDefaultImage() {
     applyDefaultTileGrid();
     createPieces();
     buildPanels();
-    resetAll();
+    seedInput.value = normalizeSeed("");
+    shuffleAll();
   };
   img.src = "sample-pastel-image.jpg";
 }
