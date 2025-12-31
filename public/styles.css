@@ -88,7 +88,7 @@ h1 {
 
 @media (min-width: 900px) {
   .control-row {
-    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    grid-template-columns: 300px 1fr 280px;
     align-items: start;
   }
 }
@@ -141,7 +141,7 @@ h1 {
 
 @media (min-width: 720px) {
   .split-row {
-    grid-template-columns: minmax(220px, 260px) 1fr;
+    grid-template-columns: minmax(130px, 150px) 1.4fr;
     align-items: center;
   }
 }
