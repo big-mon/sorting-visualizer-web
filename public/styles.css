@@ -516,14 +516,30 @@ input[type="range"] {
   font-size: 0.9rem;
 }
 
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  max-width: 100%;
+  min-width: 0;
+}
+
 .site-footer a {
   color: var(--ink);
   font-weight: 600;
   text-decoration: none;
 }
 
-.site-footer a:hover {
+.site-footer a:hover,
+.site-footer a:focus-visible {
   color: var(--accent);
+}
+
+.site-footer a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 @keyframes fadeUp {
